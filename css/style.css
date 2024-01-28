@@ -349,7 +349,7 @@ img {
 }
 
 .skill-img {
-  width: 60px;
+  width: 5.5rem;
   height: auto;
   margin-right: 20px;
 }
@@ -360,10 +360,12 @@ img {
 
 .skill-name {
   margin-bottom: 10px;
+  font-weight: bold;
+  font-size: 1.4rem;
 }
 
 .skill-text {
-  font-size: 14px;
+  font-size: 0.8rem;
   line-height: 1.8;
 }
 
@@ -432,10 +434,11 @@ img {
 .content-title {
   text-align: left;
   margin: 2rem 4rem;
+  display: flex;
 }
 
 .content-title span:nth-of-type(1) {
-  font-size: 9rem;
+  font-size: 6rem;
   color: #fff;
   text-shadow: 1px 1px 0 #000, -1px -1px 0 #000,
     -1px 1px 0 #000, 1px -1px 0 #000,
@@ -444,8 +447,10 @@ img {
 }
 
 .content-title span:nth-of-type(2) {
-  font-size: 3rem;
-  vertical-align: middle;
+  font-size: 2rem;
+  margin-left: 3rem;
+  display: flex;
+  align-items: center;
 }
 
 
@@ -540,7 +545,70 @@ img {
 
 }
 
-/*media Queries 767
+/*--------------------------------
+ aboutページ
+---------------------------------*/
+
+/*========= バー表示のためのCSS ===============*/
+
+/*タイムライン全体の設定*/
+.timeline {
+  max-width: 1920px;
+  width: 100%;
+  padding: 0 30px;
+}
+
+.timeline li {
+  /*線の起点とするためrelativeを設定*/
+  position: relative;
+  list-style: none;
+  padding: 0 0 20px 0;
+}
+
+.timeline dl {
+  margin: 0 0 4rem 3em;
+  font-size: 1rem;
+  color: #56A5BE;
+}
+
+.timeline dd {
+  font-size: 1.2rem;
+  color: #000;
+}
+
+.timeline dd strong {
+  display: block;
+  padding: 10px 0;
+}
+
+/*絶対配置で線を設定*/
+.border-line {
+  /*線の位置*/
+  position: absolute;
+  left: 0.2em;
+  top: 0;
+  width: 5px;
+  /*線の太さ*/
+  height: 0;
+  /*はじめは高さを0に*/
+  background: #56A5BE;
+}
+
+/*タイムラインの見出し横の丸の位置と形状*/
+.timeline li::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -0.4rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  background: #56A5BE;
+  border-radius: 50%;
+}
+
+
+
+/*media Queries 1366
 ----------------------------------------------------*/
 @media screen and (max-width: 1366px) {
   .mv-img img {
