@@ -51,4 +51,27 @@ $(function () {
     ScrollTimelineAnime();// 線が伸びる関数を呼ぶ
   });
 
+  //タイピングっぽい動き
+  const typewriter = (param) => {
+    let el = document.querySelector(param.el);
+    let speed = param.speed;
+    let string = param.string.split("");
+    //配列内の文字を一定の秒間隔で一文字ずつ指定要素に出力する
+    string.forEach((char, index) => {
+      setTimeout(() => {
+        el.textContent += char;
+      }, speed * index);
+    });
+  };
+  typewriter({
+    el: "#typewriter", //要素
+    string: "I'm a growing web designer.", //文字列
+    speed: 50 //速度
+  });
 });
+
+// //ローディング画面の表示
+// $(window).on('load', function () {
+//   $("#loading").delay(1500).fadeOut('slow');//ローディング画面を1.5秒（1500ms）待機してからフェードアウト
+//   $("#loading_box").delay(1200).fadeOut('slow');//ローディングテキストを1.2秒（1200ms）待機してからフェードアウト
+// });
