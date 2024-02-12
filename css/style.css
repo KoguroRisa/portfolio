@@ -978,6 +978,18 @@ img {
     margin-bottom: 20px;
   }
 
+  .article-title>h2 {
+    font-size: 0.8rem;
+  }
+
+  .article-title>p {
+    font-size: 1rem;
+  }
+
+  .article-title {
+    margin-bottom: 1rem;
+  }
+
   .content-title {
     text-align: left;
     margin: 0.8rem;
@@ -1011,6 +1023,8 @@ img {
   .timeline dd {
     font-size: 1rem;
   }
+
+
 }
 
 
