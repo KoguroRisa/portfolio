@@ -76,7 +76,6 @@ img {
 
 .viewmore {
   width: 25%;
-  border-bottom: 1px solid #000;
   margin-bottom: 4rem;
 }
 
@@ -84,6 +83,42 @@ img {
   color: #000;
   padding-left: 2rem;
   font-size: 1.6rem;
+}
+
+/*==================================================
+　5-3-3 左から右に線が伸びる（下部）
+===================================*/
+.viewmore a {
+  /*線の基点とするためrelativeを指定*/
+  position: relative;
+}
+
+.viewmore a:hover {
+  color: #333;
+}
+
+.viewmore a::after {
+  content: '';
+  /*絶対配置で線の位置を決める*/
+  position: absolute;
+  bottom: -10px;
+  left: 10%;
+  /*線の形状*/
+  width: 150%;
+  height: 1px;
+  background: #333;
+  /*アニメーションの指定*/
+  transition: all .3s;
+  transform: scale(0, 1);
+  /*X方向0、Y方向1*/
+  transform-origin: left top;
+  /*左上基点*/
+}
+
+/*現在地とhoverの設定*/
+.viewmore a:hover::after {
+  transform: scale(1, 1);
+  /*X方向にスケール拡大*/
 }
 
 .lead {
@@ -303,6 +338,12 @@ img {
 }
 
 .works-item {
+  flex: 0 0 48%;
+  margin-right: 0;
+  margin-bottom: 2rem;
+}
+
+.works-item {
   width: 31.74603%;
   margin-right: 1.58730%;
   margin-bottom: 40px;
@@ -451,6 +492,10 @@ img {
   margin-left: 3rem;
   display: flex;
   align-items: center;
+}
+
+.works-category-item span>a {
+  color: #000;
 }
 
 /* .content-title {
@@ -613,6 +658,68 @@ img {
   border-radius: 50%;
 }
 
+/*====== 9-1-1 縦線が動いてスクロールを促す =======*/
+
+/*スクロールダウン全体の場所*/
+.scrolldown1 {
+  position: absolute;
+  right: 2rem;
+  bottom: -1rem;
+  height: 5rem;
+}
+
+/*Scrollテキストの描写*/
+.scrolldown1 span {
+  /*描画位置*/
+  position: absolute;
+  left: -15px;
+  top: -15px;
+  /*テキストの形状*/
+  color: #000;
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  /*縦書き設定*/
+  -ms-writing-mode: tb-rl;
+  -webkit-writing-mode: vertical-rl;
+  writing-mode: vertical-rl;
+}
+
+/* 線の描写 */
+.scrolldown1::after {
+  content: "";
+  /*描画位置*/
+  position: absolute;
+  top: 10px;
+  left: -7px;
+  /*線の形状*/
+  width: 1px;
+  height: 30px;
+  background: #000;
+  /*線の動き1.4秒かけて動く。永遠にループ*/
+  animation: pathmove 1.4s ease-in-out infinite;
+  opacity: 0;
+}
+
+/*高さ・位置・透過が変化して線が上から下に動く*/
+@keyframes pathmove {
+  0% {
+    height: 0;
+    top: 0;
+    opacity: 0;
+  }
+
+  30% {
+    height: 30px;
+    opacity: 1;
+  }
+
+  100% {
+    height: 0;
+    top: 50px;
+    opacity: 0;
+  }
+}
+
 
 
 /*media Queries 1366
@@ -724,6 +831,16 @@ img {
     font-size: 0.8rem;
   }
 
+  /*スクロールダウン全体の場所*/
+  .scrolldown1 {
+    /*描画位置*/
+    position: absolute;
+    right: 10%;
+    bottom: 15rem;
+    /*全体の高さ*/
+    height: 5rem;
+  }
+
   /* .mv {
     height: 40vh;
   }
@@ -749,21 +866,30 @@ img {
 
   /* Works */
   .works-name {
-    font-size: 12px;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
   }
 
   .works-info {
-    margin-top: 3px;
+    margin-top: 1rem;
+    font-size: 0.7rem;
   }
 
   .works-list {
     justify-content: space-between;
+    display: block;
+    padding: 0 10%;
   }
 
   .works-item {
     flex: 0 0 48%;
     margin-right: 0;
     margin-bottom: 30px;
+    /* display: contents; */
+  }
+
+  .works-category {
+    padding: 0 10%;
   }
 
   .works-category-title {
@@ -886,6 +1012,7 @@ img {
     font-size: 1rem;
   }
 }
+
 
 
 
