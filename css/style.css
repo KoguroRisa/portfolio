@@ -840,6 +840,7 @@ img {
 
   .viewmore {
     margin-top: 1rem;
+    width: 40%;
   }
 
   .viewmore>a {
@@ -850,8 +851,6 @@ img {
   .scrolldown1 {
     /*描画位置*/
     position: absolute;
-    right: 10%;
-    bottom: 15rem;
     /*全体の高さ*/
     height: 5rem;
   }
@@ -1041,11 +1040,13 @@ img {
 
   .design-img-bl {
     display: block;
+    text-align: center;
   }
 
   .design-img-bl img:nth-of-type(1) {
-    width: 55%;
+    width: 90%;
     height: auto;
+    margin-bottom: 2rem;
   }
 
   .design-img-bl img:nth-of-type(2) {
