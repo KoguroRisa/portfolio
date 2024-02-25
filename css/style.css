@@ -478,16 +478,7 @@ img {
   display: flex;
 }
 
-.content-title span:nth-of-type(1) {
-  font-size: 6rem;
-  color: #fff;
-  text-shadow: 1px 1px 0 #000, -1px -1px 0 #000,
-    -1px 1px 0 #000, 1px -1px 0 #000,
-    0px 1px 0 #000, 0-1px 0 #000,
-    -1px 0 0 #000, 1px 0 0 #000;
-}
-
-.content-title span:nth-of-type(2) {
+.content-title span {
   font-size: 2rem;
   margin-left: 3rem;
   display: flex;
@@ -504,6 +495,70 @@ img {
   display: flex;
   align-items: center;
 } */
+
+/* #svgpath {
+  stroke-dasharray: 185;
+  animation: line-anim 5s infinite;
+  fill: none;
+  stroke: #000;
+  stroke-width: 1px;
+  stroke-linecap: round;
+}
+
+@keyframes line-anim {
+  0% {
+    stroke-dashoffset: 185;
+  }
+
+  100% {
+    stroke-dashoffset: 0px;
+  }
+} */
+
+/*--------------------------------
+ タイトル文字アニメーション
+---------------------------------*/
+path {
+  fill: none;
+  stroke: #333;
+  stroke-dasharray: 2000;
+  stroke-dashoffset: 0;
+  stroke-width: 1;
+  -webkit-animation: logo 5s ease-in forwards;
+  animation: logo 5s ease-in forwards;
+}
+
+@-webkit-keyframes logo {
+  0% {
+    stroke-dashoffset: 2000;
+    fill: transparent;
+  }
+
+  50% {
+    fill: transparent;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+    fill: #333;
+  }
+}
+
+@keyframes logo {
+  0% {
+    stroke-dashoffset: 2000;
+    fill: transparent;
+  }
+
+  50% {
+    fill: transparent;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+    fill: #333;
+  }
+}
 
 
 /*--------------------------------
@@ -1009,11 +1064,7 @@ img {
     margin: 0.8rem;
   }
 
-  .content-title span:nth-of-type(1) {
-    font-size: 4rem;
-  }
-
-  .content-title span:nth-of-type(2) {
+  .content-title span {
     font-size: 1rem;
     align-items: center;
     margin-left: 1.5rem;
