@@ -4,8 +4,9 @@ body {
   font-size: 10px;
   letter-spacing: .05em;
   color: #333;
-  font-family: "sofia-pro", "sans-serif";
-  font-family: "sofia-pro", "A1 Gothic R", "Yu Gothic", "YuGothic", "Roboto", "Helvetica Neue", "Hiragino Kaku Gothic Pro", "Meiryo", "Arial", "sans-serif";
+  /* font-family: "sofia-pro", "A1 Gothic R", "Yu Gothic", "YuGothic", "Roboto", "Helvetica Neue", "Hiragino Kaku Gothic Pro", "Meiryo", "Arial", "sans-serif"; */
+  font-family: "Sofia Sans", "Zen Kaku Gothic New", "Meiryo", "Arial", "sans-serif";
+
 }
 
 a {
