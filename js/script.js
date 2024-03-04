@@ -68,6 +68,21 @@ $(function () {
     string: "I'm a growing web designer.", //文字列
     speed: 50 //速度
   });
+
+  const tabLen = $('.tabItem').length;
+  for (i = 0; i < tabLen; i++) {
+    tabChange(i);
+  }
+
+  function tabChange(index) {
+    $('.tabItem:nth-child(' + (index + 1) + ')').on('click', function (e) {
+      e.preventDefault();
+      $('.tabItem.tabItem-current').removeClass('tabItem-current');
+      $(this).addClass('tabItem-current');
+      $('.tabBlock.tabBlock-show').removeClass('tabBlock-show');
+      $('.tabBlock:nth-child(' + (index + 1) + ')').addClass('tabBlock-show');
+    });
+  }
 });
 
 // //ローディング画面の表示

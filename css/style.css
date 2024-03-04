@@ -375,6 +375,78 @@ img {
 }
 
 /*--------------------------------
+ Worksタブ切り替え
+---------------------------------*/
+
+* {
+  box-sizing: border-box;
+}
+
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#tab {
+  max-width: 1920px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 10%;
+}
+
+.tabMenu {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  list-style: none;
+  border-bottom: 1px solid #b5b5b5;
+}
+
+.tabItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  flex-basis: 32%;
+  flex-shrink: 0;
+  border-left: 1px solid #b5b5b5;
+  border-right: 1px solid #b5b5b5;
+  border-top: 1px solid #b5b5b5;
+  border-radius: 10px 10px 0 0;
+  color: #b5b5b5;
+  text-align: center;
+  font-size: 1.6rem;
+  font-family: "Inknut Antiqua", "Zen Kaku Gothic New", "Meiryo", "Arial", "sans-serif";
+}
+
+.tabItem.tabItem-current {
+  background-color: #b5b5b5;
+  color: #111;
+}
+
+.tabContent {
+  position: relative;
+  border: 1px solid #b5b5b5;
+}
+
+.tabBlock {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  padding: 60px;
+  opacity: 0;
+  transition: .5s;
+}
+
+.tabBlock.tabBlock-show {
+  position: static;
+  opacity: 1;
+}
+
+/*--------------------------------
  Skill
 ---------------------------------*/
 .skill-list {
@@ -977,6 +1049,17 @@ path {
   .works-category-item span {
     font-size: 1.4rem;
     padding: 0.1em 1.6rem;
+  }
+
+  .tabItem {
+    height: 4rem;
+    border-radius: 10px 10px 0 0;
+    font-size: 1rem;
+  }
+
+  .tabBlock {
+    padding: 0;
+    padding-bottom: 60px;
   }
 
   /* Skill */
