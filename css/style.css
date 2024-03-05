@@ -1062,6 +1062,15 @@ path {
     padding-bottom: 60px;
   }
 
+  .tabBlock-none {
+    display: none;
+  }
+
+  .tabBlock.tabBlock-show {
+    position: static;
+    opacity: 1;
+  }
+
   /* Skill */
   .skill-list {
     display: block;

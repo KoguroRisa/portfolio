@@ -69,18 +69,25 @@ $(function () {
     speed: 50 //速度
   });
 
+  //tab 選択イベント
   const tabLen = $('.tabItem').length;
+  //
   for (i = 0; i < tabLen; i++) {
     tabChange(i);
   }
 
   function tabChange(index) {
+    //クリックしたタブが何番目かを取得
     $('.tabItem:nth-child(' + (index + 1) + ')').on('click', function (e) {
       e.preventDefault();
+      //対応するコンテンツエリアを表示
       $('.tabItem.tabItem-current').removeClass('tabItem-current');
-      $(this).addClass('tabItem-current');
+      $(this).removeClass('tabItem-current');
+      $(this).addClass('tabBlock-none');
+
       $('.tabBlock.tabBlock-show').removeClass('tabBlock-show');
       $('.tabBlock:nth-child(' + (index + 1) + ')').addClass('tabBlock-show');
+      $('.tabBlock:nth-child(' + (index + 1) + ')').addClass('tabBlock-none');
     });
   }
 });
