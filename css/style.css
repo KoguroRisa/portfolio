@@ -62,7 +62,7 @@ img {
   margin-bottom: 2rem;
   /* font-weight: bold; */
   line-height: 1;
-  margin-bottom: 4rem;
+  /* margin-bottom: 4rem; */
   text-align: left;
   letter-spacing: .05em;
   width: 70%;
@@ -78,7 +78,7 @@ img {
 
 .viewmore {
   width: 25%;
-  margin-bottom: 4rem;
+  margin: 0 0 1rem auto;
 }
 
 .viewmore>a {
@@ -969,12 +969,12 @@ path {
   }
 
   .viewmore {
-    margin-top: 1rem;
-    width: 40%;
+    margin: 0 0 1rem auto;
+    width: 32%;
   }
 
   .viewmore>a {
-    font-size: 0.8rem;
+    font-size: 1rem;
   }
 
   /*スクロールダウン全体の場所*/
@@ -983,6 +983,10 @@ path {
     position: absolute;
     /*全体の高さ*/
     height: 5rem;
+  }
+
+  .about {
+    display: block;
   }
 
   /* .mv {
