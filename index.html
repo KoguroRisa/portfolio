@@ -17,18 +17,10 @@
 </head>
 
 <body>
-  <!-- <div id="loading">
-    <div id="loading_box">
-      <div class="loading-one animation_loading">
-        <p class="loading-txt">Loading</p>
-      </div>
-    </div>
-  </div> -->
-
   <div class="wrapper">
     <!-- header -->
     <header class="header">
-      <div class="container">
+      <div class="navtext-container">
         <h1 class="header-logo">
           <a href="index.html"><img src="img/logo.png" alt="logo"></a>
         </h1>
@@ -36,9 +28,21 @@
           <ul class="gnav-list">
             <li class="gnav-item"><a href="#about">ABOUT</a></li>
             <li class="gnav-item"><a href="#works">WORKS</a></li>
-            <li class="gnav-item"><a href="#contact">CONTACT</a></li>
+            <li class="gnav-item"><a href="mailto:risakkuma015&#64;gmail.com">CONTACT</a></li>
           </ul>
         </nav>
+      </div>
+      <div class="drawer">
+        <div class="sp-gnav">
+          <input type="checkbox" class="menu-btn" id="menu-btn">
+          <label for="menu-btn" class="menu-icon"><span class="navicon"></span></label>
+          <ul class="menu">
+            <li class="top"><a href="index.html">HOME</a></li>
+            <li><a href="#about">ABOUT</a></li>
+            <li><a href="#works">WORKS</a></li>
+            <li><a href="mailto:risakkuma015&#64;gmail.com">CONTACT</a></li>
+          </ul>
+        </div>
       </div>
     </header>
     <!-- /header -->
@@ -53,8 +57,8 @@
           <p class="mv-text-subtitle" id="typewriter"></p>
         </div>
         <div class="scrolldown1"><span>Scroll</span></div>
-        <div class="mv-img">
-          <img src="img/main.JPG" alt="main">
+        <div class="mv-img slide-in leftAnime">
+          <img class="slide-in_inner leftAnimeInner" src="img/main.JPG" alt="main">
         </div>
         <div></div>
       </div>
@@ -62,12 +66,11 @@
 
       <!-- about -->
       <section class="section" id="about">
-        <div class="container js-fade">
+        <div class="container">
           <div class="about">
             <h2 class="title">About<span class="title-sub">わたしのこと</span></h2>
-            <P class="viewmore"><a href="about.html">View more</a></P>
           </div>
-          <div class="profile">
+          <div class="profile  js-fade">
             <p class="profile-img">
               <img src="img/about.JPG" alt="about">
             </p>
@@ -77,21 +80,22 @@
               </p>
               <p>
                 大学卒業後ソフトウェア開発の企業でSEとして働きながら、2023年10月よりWebデザイナーを目指して勉強しています。<br>
-                趣味は絵を描くこと、カフェ巡り、写真を撮ること、旅行です。<br>
+                趣味は絵を描くこと、カフェ巡り、写真を撮ることです。<br>
                 ソフトウェア開発で培った論理的思考力と、デザインをすることが好きな気持ちを活かし、見やすくメンテナンスしやすいコーディングを心がけて制作いたします。
               </p>
             </div>
           </div>
+          <p class="viewmore js-fade"><a href="about.html">View more</a></p>
         </div>
       </section>
       <!-- /about -->
 
       <!-- works -->
-      <section class="section js-fade" id="works">
+      <section class="section" id="works">
         <div class="container">
           <h2 class="title">Works<span class="title-sub">制作物</span></h2>
         </div>
-        <div id="tab">
+        <div id="tab" class="js-fade">
           <ul class="tabMenu">
             <li class="tabItem tabItem-current">all</li>
             <li class="tabItem">web site</li>
@@ -209,8 +213,9 @@
         <div class="container">
           <h2 class="title">Contact<span class="title-sub">お問い合わせ</span></h2>
           <p class="lead">
-            お問い合わせは、<br class="sp-only">メールにてお願いいたします。
+            <a href="mailto:risakkuma015&#64;gmail.com">お問い合わせはこちらから</a>
           </p>
+
         </div>
       </section>
       <!-- /contact -->
@@ -229,7 +234,7 @@
           <ul class="gnav-list">
             <li class="gnav-item"><a href="#about">ABOUT</a></li>
             <li class="gnav-item"><a href="#works">WORKS</a></li>
-            <li class="gnav-item"><a href="#contact">CONTACT</a></li>
+            <li class="gnav-item"><a href="mailto:risakkuma015&#64;gmail.com">CONTACT</a></li>
           </ul>
         </nav>
       </div>

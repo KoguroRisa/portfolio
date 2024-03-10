@@ -85,7 +85,13 @@ img {
   background-color: #fff;
 }
 
-.header .container {
+/* .header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 40px;
+} */
+.header .navtext-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -102,6 +108,10 @@ img {
 
 .header-logo a {
   color: #333;
+}
+
+.sp-gnav {
+  display: none;
 }
 
 .gnav-list {
@@ -152,6 +162,10 @@ img {
   width: 100%;
 }
 
+.menu-btn {
+  display: none;
+}
+
 /*--------------------------------
  MV
 ---------------------------------*/
@@ -180,8 +194,71 @@ img {
 
 .mv-img img {
   width: 100%;
-  height: 35rem;
+  /* height: 35rem; */
   object-fit: cover;
+}
+
+/*========= 流れるテキスト ===============*/
+
+/*全共通*/
+
+.slide-in {
+  overflow: hidden;
+  display: inline-block;
+}
+
+.slide-in_inner {
+  display: inline-block;
+
+}
+
+/*左右のアニメーション*/
+.leftAnime {
+  opacity: 0;
+  /*事前に透過0にして消しておく*/
+}
+
+.slideAnimeLeftRight {
+  animation-name: slideTextX100;
+  animation-duration: 0.8s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+@keyframes slideTextX100 {
+  from {
+    transform: translateX(-100%);
+    /*要素を左の枠外に移動*/
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    /*要素を元の位置に移動*/
+    opacity: 1;
+  }
+}
+
+.slideAnimeRightLeft {
+  animation-name: slideTextX-100;
+  animation-duration: 0.8s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+
+
+@keyframes slideTextX-100 {
+  from {
+    transform: translateX(100%);
+    /*要素を右の枠外に移動*/
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    /*要素を元の位置に移動*/
+    opacity: 1;
+  }
 }
 
 /*--------------------------------
@@ -239,20 +316,21 @@ img {
 
 /* ーーーーviewmoreボタンーーーー */
 .viewmore {
-  width: 25%;
   margin: 0 0 1rem auto;
+  text-align: right;
+  padding-right: 1rem;
 }
 
 .viewmore a {
   /*線の基点とするためrelativeを指定*/
   position: relative;
-  color: #000;
+  font-weight: bold;
   padding-left: 2rem;
   font-size: 1.6rem;
 }
 
 .viewmore a:hover {
-  color: #333;
+  color: #13b0ee;
 }
 
 .viewmore a::after {
@@ -262,9 +340,10 @@ img {
   bottom: -10px;
   left: 10%;
   /*線の形状*/
-  width: 150%;
-  height: 1px;
-  background: #333;
+  width: 120%;
+  height: 3px;
+  /* background: #333; */
+  background: #AED8E6;
   /*アニメーションの指定*/
   transition: all .3s;
   transform: scale(0, 1);
@@ -394,6 +473,16 @@ img {
   font-size: 16px;
   line-height: 1.8;
   margin-bottom: 30px;
+  text-align: center;
+  border: 1px solid #000;
+  width: 50%;
+  margin: 0 auto;
+  padding: 1rem;
+  border-radius: 0.5em;
+}
+
+.lead a {
+  color: #111;
 }
 
 /*--------------------------------
@@ -766,12 +855,11 @@ path {
   }
 }
 
-
-/*media Queries 1366
+/*media Queries 950
 ----------------------------------------------------*/
-@media screen and (max-width: 1366px) {
+@media screen and (max-width: 950px) {
   .mv-img img {
-    height: 25rem;
+    height: 35rem;
   }
 
 }
@@ -815,7 +903,7 @@ path {
     margin-right: 15px;
   }
 
-  .gnav-item:not(:last-child) {
+  /* .gnav-item:not(:last-child) {
     margin-right: 10px;
   }
 
@@ -825,6 +913,159 @@ path {
 
   .gnav-item a:after {
     display: none;
+  } */
+
+  /* .gnav {
+    display: none;
+  } */
+
+  /*==================================================
+　5-2-1 3本線が×に
+===================================*/
+  .sp-gnav {
+    display: inline;
+  }
+
+  .gnav:nth-of-type(1) {
+    display: none;
+  }
+
+  .header {
+    position: fixed;
+    width: 100%;
+  }
+
+  /* Nav items */
+  .menu {
+    list-style: none;
+    position: absolute;
+    width: 100%;
+    height: auto;
+    top: 0;
+    margin-top: 50px;
+    padding: 0 0 10px 0;
+    clear: both;
+    background: #fff;
+    transition: 0.3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.1008s;
+    transform: scale(1, 0);
+    transform-origin: top;
+  }
+
+  /* Hamburger menu button */
+  .menu-btn:checked~.menu {
+    transform: scale(1, 1);
+    transform-origin: top;
+    transition: 0.3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.1008s;
+  }
+
+  /* Hamburger menbu text */
+  .menu a {
+    text-decoration: none;
+    font-weight: 500;
+    letter-spacing: 2px;
+    font-size: 16px;
+    text-transform: capitalize;
+    color: rgb(75, 75, 75);
+    opacity: 0;
+    transition: 0.5s;
+  }
+
+  .menu li {
+    border-top: 1px solid #F1F1F1;
+    padding: 15px 0;
+    margin: 0 54px;
+    opacity: 0;
+    transition: 0.5s;
+  }
+
+  .menu-btn:checked~.menu a,
+  .menu-btn:checked~.menu li {
+    opacity: 1;
+    transition: 0.3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.2s;
+  }
+
+  .menu-btn {
+    display: none;
+  }
+
+  .menu-icon {
+    float: right;
+    position: relative;
+    cursor: pointer;
+    padding: 24px 14px;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  }
+
+  .navicon {
+    background: #ddd;
+    display: block;
+    height: 3px;
+    width: 26px;
+    position: relative;
+    transition: 0.3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.1008s;
+  }
+
+  .navicon:before,
+  .navicon:after {
+    content: "";
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background: #ddd;
+    transition: 0.3192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.1008s;
+  }
+
+  .navicon:before {
+    top: 9px;
+  }
+
+  .navicon:after {
+    bottom: 9px;
+  }
+
+  /* Hamburger Menu Animation Start */
+  .menu-btn:checked~.menu-icon .navicon:before {
+    transform: rotate(-45deg);
+  }
+
+  .menu-btn:checked~.menu-icon .navicon:after {
+    transform: rotate(45deg);
+  }
+
+  .menu-btn:checked~.menu-icon:not(.steps) .navicon:before {
+    top: 0;
+  }
+
+  .menu-btn:checked~.menu-icon:not(.steps) .navicon:after {
+    bottom: 0;
+  }
+
+  .menu-btn:checked~.menu-icon .navicon {
+    background: rgba(0, 0, 0, 0);
+    transition: 0.2192s cubic-bezier(0.04, 0.04, 0.12, 0.96) 0.1008s;
+  }
+
+  /* Hamburger Menu Animation End */
+
+  /* Navbar Container */
+  .navtext-container {
+    width: 100%;
+    height: 52px;
+    position: absolute;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Navbar Text */
+  .navtext {
+    position: absolute;
+    text-transform: uppercase;
+    color: #ddd;
+    letter-spacing: 4px;
+    font-size: 20px;
   }
 
   /*  メインビジュアル */
@@ -879,8 +1120,8 @@ path {
   }
 
   .viewmore {
-    margin: 0 0 1rem auto;
-    width: 32%;
+    margin: 1rem;
+
   }
 
   .viewmore>a {
@@ -932,6 +1173,14 @@ path {
     font-size: 14px;
     line-height: 1.7;
     margin-bottom: 20px;
+    border: 1px;
+    border-radius: 0.5em;
+    font-size: 16px;
+    text-align: center;
+    border: 1px solid #000;
+    width: 50%;
+    margin: 0 auto;
+    padding: 1rem;
   }
 
   /* フッター */
@@ -1049,99 +1298,3 @@ path {
     height: 5rem;
   }
 }
-
-
-
-
-/*==================
-#loading
-==================*/
-/* 
-#loading {
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  z-index: 99999;
-  width: 100%;
-  height: 100%;
-  background: #999;
-}
-
-#loading_box {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  text-align: center;
-}
-
-.loading-one {
-  display: inline-block;
-  border-top: 1px solid #ffffff;
-  border-bottom: 1px solid #ffffff;
-}
-
-.loading-one p.loading-txt {
-  color: #fff;
-  font-size: 20px;
-  letter-spacing: 0.25em;
-  line-height: 2.0;
-  padding: 2em 0;
-} */
-
-/*==================
-.animation_loading
-==================*/
-
-/* .animation_loading {
-  animation: equalizer_loading 7000ms infinite;
-  animation-iteration-count: 10;
-}
-
-@keyframes equalizer_loading {
-  0% {
-    width: 70%;
-  }
-
-  10% {
-    width: 50%;
-  }
-
-  20% {
-    width: 100%;
-  }
-
-  30% {
-    width: 10%;
-  }
-
-  40% {
-    width: 50%;
-  }
-
-  50% {
-    width: 70%;
-  }
-
-  60% {
-    width: 50%;
-  }
-
-  70% {
-    width: 10%;
-  }
-
-  80% {
-    width: 100%;
-  }
-
-  90% {
-    width: 10%;
-  }
-
-  100% {
-    width: 70%;
-  }
-} */
