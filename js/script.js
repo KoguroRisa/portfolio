@@ -83,11 +83,12 @@ $(function () {
       //対応するコンテンツエリアを表示
       $('.tabItem.tabItem-current').removeClass('tabItem-current');
       $(this).removeClass('tabItem-current');
-      $(this).addClass('tabBlock-none');
 
+      $('.tabBlock.tabBlock-show').addClass('tabBlock-none');                   //tab内コンテンツ非表示設定
       $('.tabBlock.tabBlock-show').removeClass('tabBlock-show');
-      $('.tabBlock:nth-child(' + (index + 1) + ')').addClass('tabBlock-show');
-      $('.tabBlock:nth-child(' + (index + 1) + ')').addClass('tabBlock-none');
+      $('.tabItem:nth-child(' + (index + 1) + ')').addClass('tabItem-current'); //タブ色を選択状態にする
+      $('.tabBlock:nth-child(' + (index + 1) + ')').addClass('tabBlock-show');  //tab内コンテンツ表示設定
+      $('.tabBlock:nth-child(' + (index + 1) + ')').removeClass('tabBlock-none');
     });
   }
 });

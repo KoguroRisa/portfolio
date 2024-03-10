@@ -9,6 +9,18 @@ body {
 
 }
 
+* {
+  /* paddingとborderを幅と高さに含める */
+  box-sizing: border-box;
+}
+
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
 a {
   transition: opacity .3s;
   text-decoration: none;
@@ -21,8 +33,6 @@ img {
   vertical-align: bottom;
   border-style: none;
 }
-
-
 
 .pc-only {
   display: block;
@@ -43,10 +53,6 @@ img {
   padding: 90px 0;
 }
 
-/* .section:nth-of-type(odd) {
-  background-color: #f7f7f7;
-} */
-
 .container {
   max-width: 1920px;
   width: 100%;
@@ -54,83 +60,7 @@ img {
 }
 
 /*--------------------------------
- 見出し
----------------------------------*/
-.title {
-  font-family: "Inknut Antiqua", "Zen Kaku Gothic New", "Meiryo", "Arial", "sans-serif";
-  font-size: 2.6rem;
-  margin-bottom: 2rem;
-  /* font-weight: bold; */
-  line-height: 1;
-  /* margin-bottom: 4rem; */
-  text-align: left;
-  letter-spacing: .05em;
-  width: 70%;
-  /* color: #333; */
-}
-
-.title-sub {
-  font-size: 1rem;
-  padding-left: 13%;
-  vertical-align: middle;
-
-}
-
-.viewmore {
-  width: 25%;
-  margin: 0 0 1rem auto;
-}
-
-.viewmore>a {
-  color: #000;
-  padding-left: 2rem;
-  font-size: 1.6rem;
-}
-
-/*==================================================
-　5-3-3 左から右に線が伸びる（下部）
-===================================*/
-.viewmore a {
-  /*線の基点とするためrelativeを指定*/
-  position: relative;
-}
-
-.viewmore a:hover {
-  color: #333;
-}
-
-.viewmore a::after {
-  content: '';
-  /*絶対配置で線の位置を決める*/
-  position: absolute;
-  bottom: -10px;
-  left: 10%;
-  /*線の形状*/
-  width: 150%;
-  height: 1px;
-  background: #333;
-  /*アニメーションの指定*/
-  transition: all .3s;
-  transform: scale(0, 1);
-  /*X方向0、Y方向1*/
-  transform-origin: left top;
-  /*左上基点*/
-}
-
-/*現在地とhoverの設定*/
-.viewmore a:hover::after {
-  transform: scale(1, 1);
-  /*X方向にスケール拡大*/
-}
-
-.lead {
-  font-size: 16px;
-  line-height: 1.8;
-  margin-bottom: 30px;
-}
-
-/*--------------------------------
-ヘッダー
+ Header
 ---------------------------------*/
 .header {
   position: fixed;
@@ -165,6 +95,7 @@ img {
   list-style: none;
 }
 
+/* Contactボタンには右margin1を付与しない */
 .gnav-item:not(:last-child) {
   margin-right: 20px;
 }
@@ -193,26 +124,12 @@ img {
   background-color: #333;
 }
 
+/* Contactボタン */
 .gnav-item:nth-of-type(3) a {
-  position: relative;
-  font-weight: bold;
-  display: inline-block;
-  padding: 5px 0;
-  transition: .3s;
-  letter-spacing: .05em;
   color: #56A5BE;
 }
 
 .gnav-item:nth-of-type(3) a:after {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  width: 0;
-  height: 3px;
-  content: "";
-  transition: .3s;
-  -webkit-transform: translateX(-50%);
-  transform: translateX(-50%);
   background-color: #AED8E6;
 }
 
@@ -221,26 +138,8 @@ img {
 }
 
 /*--------------------------------
- メインビジュアル
+ MV
 ---------------------------------*/
-
-/* .mv {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: auto;
-  text-align: center;
-}
-
-.mv-container {
-  position: relative;
-  padding: 0 20px;
-}
-
-.mv-container img {
-  width: 100%;
-  height: auto;
-} */
 .mv {
   margin-right: 6rem;
 }
@@ -261,7 +160,6 @@ img {
 }
 
 .mv-img {
-  /* height: 60%; */
   object-fit: cover;
 }
 
@@ -271,6 +169,25 @@ img {
   object-fit: cover;
 }
 
+/*--------------------------------
+ 見出し
+---------------------------------*/
+.title {
+  font-family: "Inknut Antiqua", "Zen Kaku Gothic New", "Meiryo", "Arial", "sans-serif";
+  font-size: 2.6rem;
+  margin-bottom: 2rem;
+  line-height: 1;
+  text-align: left;
+  letter-spacing: .05em;
+  width: 70%;
+}
+
+.title-sub {
+  font-size: 1rem;
+  padding-left: 13%;
+  vertical-align: middle;
+
+}
 
 /*--------------------------------
  About
@@ -291,7 +208,6 @@ img {
   margin-right: 3rem;
 }
 
-
 .profile-body {
   flex: 1;
 }
@@ -305,35 +221,52 @@ img {
   margin-bottom: 30px;
 }
 
+
+/* ーーーーviewmoreボタンーーーー */
+.viewmore {
+  width: 25%;
+  margin: 0 0 1rem auto;
+}
+
+.viewmore a {
+  /*線の基点とするためrelativeを指定*/
+  position: relative;
+  color: #000;
+  padding-left: 2rem;
+  font-size: 1.6rem;
+}
+
+.viewmore a:hover {
+  color: #333;
+}
+
+.viewmore a::after {
+  content: '';
+  /*絶対配置で線の位置を決める*/
+  position: absolute;
+  bottom: -10px;
+  left: 10%;
+  /*線の形状*/
+  width: 150%;
+  height: 1px;
+  background: #333;
+  /*アニメーションの指定*/
+  transition: all .3s;
+  transform: scale(0, 1);
+  /*X方向0、Y方向1*/
+  transform-origin: left top;
+  /*左上基点*/
+}
+
+/*現在地とhoverの設定*/
+.viewmore a:hover::after {
+  transform: scale(1, 1);
+  /*X方向にスケール拡大*/
+}
+
 /*--------------------------------
  Works
 ---------------------------------*/
-.works-category {
-  width: 100%;
-  margin: 0 0 4rem 0;
-  position: relative;
-}
-
-.works-category-title {
-  font-size: 1.8rem;
-  position: absolute;
-  padding-left: 5rem;
-  top: -1.5rem;
-}
-
-.works-category-item {
-  background-color: #F1F1F1;
-  padding: 2rem;
-  display: flex;
-  justify-content: space-around;
-}
-
-.works-category-item span {
-  font-size: 1.4rem;
-  background-color: #fff;
-  padding: 0.2rem 1.6rem;
-}
-
 .works-list {
   display: flex;
   flex-wrap: wrap;
@@ -342,11 +275,6 @@ img {
 
 .works-item {
   flex: 0 0 48%;
-  margin-right: 0;
-  margin-bottom: 2rem;
-}
-
-.works-item {
   width: 31.74603%;
   margin-right: 1.58730%;
   margin-bottom: 40px;
@@ -356,10 +284,6 @@ img {
 .works-item:hover {
   opacity: .9;
 }
-
-/* .works-item:nth-of-type(3n) {
-  margin-right: 0;
-} */
 
 .works-img img {
   border: 1px solid #e6e6e6;
@@ -374,21 +298,7 @@ img {
   margin-top: 8px;
 }
 
-/*--------------------------------
- Worksタブ切り替え
----------------------------------*/
-
-* {
-  box-sizing: border-box;
-}
-
-ul,
-li {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
+/* ーーーーWorksタブ切り替えーーーー */
 #tab {
   max-width: 1920px;
   margin: 0 auto;
@@ -447,46 +357,6 @@ li {
 }
 
 /*--------------------------------
- Skill
----------------------------------*/
-.skill-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin-bottom: -50px;
-}
-
-.skill-item {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  width: 48%;
-  margin-bottom: 50px;
-}
-
-.skill-img {
-  width: 5.5rem;
-  height: auto;
-  margin-right: 20px;
-}
-
-.skill-body {
-  flex: 1;
-}
-
-.skill-name {
-  margin-bottom: 10px;
-  font-weight: bold;
-  font-size: 1.4rem;
-}
-
-.skill-text {
-  font-size: 0.8rem;
-  line-height: 1.8;
-}
-
-
-/*--------------------------------
  Contact
 ---------------------------------*/
 .contact {
@@ -499,6 +369,12 @@ li {
 
 .contact-text {
   margin-top: 10px;
+}
+
+.lead {
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 30px;
 }
 
 /*--------------------------------
@@ -545,7 +421,7 @@ li {
 }
 
 /*--------------------------------
- 下層：Worksページ
+ 下層ページ共通
 ---------------------------------*/
 .content-title {
   text-align: left;
@@ -560,89 +436,109 @@ li {
   align-items: center;
 }
 
-.works-category-item span>a {
-  color: #000;
-}
-
-/* .content-title {
-  font-size: 2rem;
-  margin-left: 3rem;
-  display: flex;
-  align-items: center;
-} */
-
-/* #svgpath {
-  stroke-dasharray: 185;
-  animation: line-anim 5s infinite;
-  fill: none;
-  stroke: #000;
-  stroke-width: 1px;
-  stroke-linecap: round;
-}
-
-@keyframes line-anim {
-  0% {
-    stroke-dashoffset: 185;
-  }
-
-  100% {
-    stroke-dashoffset: 0px;
-  }
-} */
-
-/*--------------------------------
- タイトル文字アニメーション
----------------------------------*/
-path {
-  fill: none;
-  stroke: #333;
-  stroke-dasharray: 2000;
-  stroke-dashoffset: 0;
-  stroke-width: 1;
-  -webkit-animation: logo 5s ease-in forwards;
-  animation: logo 5s ease-in forwards;
-}
-
-@-webkit-keyframes logo {
-  0% {
-    stroke-dashoffset: 2000;
-    fill: transparent;
-  }
-
-  50% {
-    fill: transparent;
-  }
-
-  100% {
-    stroke-dashoffset: 0;
-    fill: #333;
-  }
-}
-
-@keyframes logo {
-  0% {
-    stroke-dashoffset: 2000;
-    fill: transparent;
-  }
-
-  50% {
-    fill: transparent;
-  }
-
-  100% {
-    stroke-dashoffset: 0;
-    fill: #333;
-  }
-}
-
-
-/*--------------------------------
- 下層：Worksページ
----------------------------------*/
 .article {
   padding: 80px 0;
 }
 
+/*--------------------------------
+ 下層：Aboutページ
+---------------------------------*/
+/* ーーーーSkillーーーー */
+.skill-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: -50px;
+}
+
+.skill-item {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 48%;
+  margin-bottom: 50px;
+}
+
+.skill-img {
+  width: 5.5rem;
+  height: auto;
+  margin-right: 20px;
+}
+
+.skill-body {
+  flex: 1;
+}
+
+.skill-name {
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+
+.skill-text {
+  font-size: 0.8rem;
+  line-height: 1.8;
+}
+
+/* ーーーーCareerーーーー */
+/*タイムライン全体の設定*/
+.timeline {
+  max-width: 1920px;
+  width: 100%;
+  padding: 0 30px;
+}
+
+.timeline li {
+  /*線の起点とするためrelativeを設定*/
+  position: relative;
+  list-style: none;
+  padding: 0 0 20px 0;
+}
+
+.timeline dl {
+  margin: 0 0 4rem 3em;
+  font-size: 1rem;
+  color: #56A5BE;
+}
+
+.timeline dd {
+  font-size: 1.2rem;
+  color: #000;
+}
+
+.timeline dd strong {
+  display: block;
+  padding: 10px 0;
+}
+
+/*絶対配置で線を設定*/
+.border-line {
+  /*線の位置*/
+  position: absolute;
+  left: 0.2em;
+  top: 0;
+  width: 5px;
+  /*線の太さ*/
+  height: 0;
+  /*はじめは高さを0に*/
+  background: #56A5BE;
+}
+
+/*タイムラインの見出し横の丸の位置と形状*/
+.timeline li::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -0.4rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  background: #56A5BE;
+  border-radius: 50%;
+}
+
+/*--------------------------------
+ 下層：Worksページ
+---------------------------------*/
 .article-container {
   max-width: 1920px;
   margin: 0 auto;
@@ -710,6 +606,7 @@ path {
   text-align: center;
 }
 
+/* ーーーーdesignーーーー */
 .design-img {
   display: flex;
   justify-content: space-between;
@@ -743,68 +640,8 @@ path {
 }
 
 /*--------------------------------
- aboutページ
+ スクロールダウンアニメーション
 ---------------------------------*/
-
-/*========= バー表示のためのCSS ===============*/
-
-/*タイムライン全体の設定*/
-.timeline {
-  max-width: 1920px;
-  width: 100%;
-  padding: 0 30px;
-}
-
-.timeline li {
-  /*線の起点とするためrelativeを設定*/
-  position: relative;
-  list-style: none;
-  padding: 0 0 20px 0;
-}
-
-.timeline dl {
-  margin: 0 0 4rem 3em;
-  font-size: 1rem;
-  color: #56A5BE;
-}
-
-.timeline dd {
-  font-size: 1.2rem;
-  color: #000;
-}
-
-.timeline dd strong {
-  display: block;
-  padding: 10px 0;
-}
-
-/*絶対配置で線を設定*/
-.border-line {
-  /*線の位置*/
-  position: absolute;
-  left: 0.2em;
-  top: 0;
-  width: 5px;
-  /*線の太さ*/
-  height: 0;
-  /*はじめは高さを0に*/
-  background: #56A5BE;
-}
-
-/*タイムラインの見出し横の丸の位置と形状*/
-.timeline li::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -0.4rem;
-  width: 1.5rem;
-  height: 1.5rem;
-  background: #56A5BE;
-  border-radius: 50%;
-}
-
-/*====== 9-1-1 縦線が動いてスクロールを促す =======*/
-
 /*スクロールダウン全体の場所*/
 .scrolldown1 {
   position: absolute;
@@ -865,6 +702,50 @@ path {
   }
 }
 
+/*--------------------------------
+ タイトル文字アニメーション
+---------------------------------*/
+path {
+  fill: none;
+  stroke: #333;
+  stroke-dasharray: 2000;
+  stroke-dashoffset: 0;
+  stroke-width: 1;
+  -webkit-animation: logo 5s ease-in forwards;
+  animation: logo 5s ease-in forwards;
+}
+
+@-webkit-keyframes logo {
+  0% {
+    stroke-dashoffset: 2000;
+    fill: transparent;
+  }
+
+  50% {
+    fill: transparent;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+    fill: #333;
+  }
+}
+
+@keyframes logo {
+  0% {
+    stroke-dashoffset: 2000;
+    fill: transparent;
+  }
+
+  50% {
+    fill: transparent;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+    fill: #333;
+  }
+}
 
 
 /*media Queries 1366
@@ -891,25 +772,6 @@ path {
     display: block;
   }
 
-  /* 見出し */
-  .title {
-    font-size: 2.6rem;
-    margin-bottom: 2rem;
-    width: 100%;
-  }
-
-  .title-sub {
-    font-size: 1.2rem;
-    padding-left: 5%;
-
-  }
-
-  .lead {
-    font-size: 14px;
-    line-height: 1.7;
-    margin-bottom: 20px;
-  }
-
   /* レイアウト */
   .wrapper {
     padding-top: 57px;
@@ -924,7 +786,7 @@ path {
 
   }
 
-  /* ヘッダー */
+  /* Header */
   .header .container {
     padding: 15px;
   }
@@ -960,12 +822,41 @@ path {
     margin: 0.8rem 0;
   }
 
+  /* 見出し */
   .title {
-    font-size: 2.4rem;
+    font-size: 2.6rem;
+    margin-bottom: 2rem;
+    width: 100%;
   }
 
   .title-sub {
-    font-size: 0.8rem;
+    font-size: 1.2rem;
+    padding-left: 5%;
+  }
+
+  /* About */
+  .about {
+    display: block;
+  }
+
+  .profile {
+    display: block;
+  }
+
+  .profile-img {
+    width: 150px;
+    margin: 0 auto;
+    margin-bottom: 25px;
+  }
+
+  .profile-body p {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .profile-body p:not(:last-child) {
+    margin-bottom: 1rem;
+    text-align: center;
   }
 
   .viewmore {
@@ -977,52 +868,7 @@ path {
     font-size: 1rem;
   }
 
-  /*スクロールダウン全体の場所*/
-  .scrolldown1 {
-    /*描画位置*/
-    position: absolute;
-    /*全体の高さ*/
-    height: 5rem;
-  }
-
-  .about {
-    display: block;
-  }
-
-  /* .mv {
-    height: 40vh;
-  }
-
-  .mv-container {
-    padding: 0 20px;
-  }
-
-  .mv-title {
-    font-size: 30px;
-  }
-
-  .mv-subtitle {
-    font-size: 16px;
-    margin-bottom: 20px;
-  }
-
-  .mv-text {
-    top: 75%;
-    font-size: 14px;
-    line-height: 1.7;
-  } */
-
   /* Works */
-  .works-name {
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .works-info {
-    margin-top: 1rem;
-    font-size: 0.7rem;
-  }
-
   .works-list {
     justify-content: space-between;
     display: block;
@@ -1036,23 +882,14 @@ path {
     /* display: contents; */
   }
 
-  .works-category {
-    padding: 0 10%;
+  .works-name {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
   }
 
-  .works-category-title {
-    font-size: 1.6rem;
-    padding-left: 2rem;
-  }
-
-  .works-category-item {
-    padding: 1.5rem;
-    display: inline-block;
-  }
-
-  .works-category-item span {
-    font-size: 1.4rem;
-    padding: 0.1em 1.6rem;
+  .works-info {
+    margin-top: 1rem;
+    font-size: 0.7rem;
   }
 
   .tabItem {
@@ -1066,15 +903,44 @@ path {
     padding-bottom: 60px;
   }
 
-  .tabBlock-none {
-    display: none;
-  }
-
   .tabBlock.tabBlock-show {
     position: static;
     opacity: 1;
   }
 
+  .tabBlock-none {
+    display: none;
+  }
+
+  /* Contact */
+  .lead {
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 20px;
+  }
+
+  /* フッター */
+  .footer {
+    padding: 20px;
+  }
+
+  /* 下層ページ */
+  .content-title {
+    text-align: left;
+    margin: 0.8rem;
+  }
+
+  .content-title span {
+    font-size: 1rem;
+    align-items: center;
+    margin-left: 1.5rem;
+  }
+
+  .article {
+    padding: 50px 0;
+  }
+
+  /* 下層ページ:About */
   /* Skill */
   .skill-list {
     display: block;
@@ -1101,36 +967,21 @@ path {
     line-height: 1.5;
   }
 
-  /* About */
-  .profile {
-    display: block;
+  .timeline li::after {
+    left: -0.2rem;
+    width: 1rem;
+    height: 1rem;
   }
 
-  .profile-img {
-    width: 150px;
-    margin: 0 auto;
-    margin-bottom: 25px;
+  .timeline dl {
+    font-size: 0.8rem;
   }
 
-  .profile-body p {
-    font-size: 14px;
-    line-height: 1.7;
+  .timeline dd {
+    font-size: 1rem;
   }
 
-  .profile-body p:not(:last-child) {
-    margin-bottom: 20px;
-  }
-
-  /* フッター */
-  .footer {
-    padding: 20px;
-  }
-
-  /* 下層ページ */
-  .article {
-    padding: 50px 0;
-  }
-
+  /* 下層ページ:works */
   .article-body h3 {
     font-size: 16px;
     padding-left: .8em;
@@ -1158,36 +1009,6 @@ path {
     margin-bottom: 1rem;
   }
 
-  .content-title {
-    text-align: left;
-    margin: 0.8rem;
-  }
-
-  .content-title span {
-    font-size: 1rem;
-    align-items: center;
-    margin-left: 1.5rem;
-  }
-
-  .profile-body p:not(:last-child) {
-    margin-bottom: 1rem;
-    text-align: center;
-  }
-
-  .timeline li::after {
-    left: -0.2rem;
-    width: 1rem;
-    height: 1rem;
-  }
-
-  .timeline dl {
-    font-size: 0.8rem;
-  }
-
-  .timeline dd {
-    font-size: 1rem;
-  }
-
   .design-img-bl {
     display: block;
     text-align: center;
@@ -1205,7 +1026,13 @@ path {
 
   }
 
-
+  /*スクロールダウン全体の場所*/
+  .scrolldown1 {
+    /*描画位置*/
+    position: absolute;
+    /*全体の高さ*/
+    height: 5rem;
+  }
 }
 
 
