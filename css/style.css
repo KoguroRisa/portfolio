@@ -42,6 +42,21 @@ img {
   display: none;
 }
 
+/* フェードイン前 */
+.js-fade {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(50px);
+  transition: opacity 1s, visibility 1s, transform 1s;
+}
+
+/* フェードイン後 */
+.scroll {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0px);
+}
+
 /*--------------------------------
  レイアウト
 ---------------------------------*/
@@ -354,6 +369,10 @@ img {
 .tabBlock.tabBlock-show {
   position: static;
   opacity: 1;
+}
+
+.tabBlock-none {
+  display: none;
 }
 
 /*--------------------------------
@@ -906,10 +925,6 @@ path {
   .tabBlock.tabBlock-show {
     position: static;
     opacity: 1;
-  }
-
-  .tabBlock-none {
-    display: none;
   }
 
   /* Contact */
