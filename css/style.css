@@ -24,7 +24,7 @@ li {
 a {
   transition: opacity .3s;
   text-decoration: none;
-  color: #1ca9e3;
+  color: #765D4C;
 }
 
 img {
@@ -151,11 +151,11 @@ img {
 
 /* Contactボタン */
 .gnav-item:nth-of-type(3) a {
-  color: #56A5BE;
+  color: #765D4C;
 }
 
 .gnav-item:nth-of-type(3) a:after {
-  background-color: #AED8E6;
+  background-color: #A69284;
 }
 
 .gnav-item a:hover:after {
@@ -196,6 +196,7 @@ img {
   width: 100%;
   /* height: 35rem; */
   object-fit: cover;
+  object-position: 25%;
 }
 
 /*========= 流れるテキスト ===============*/
@@ -272,6 +273,39 @@ img {
   text-align: left;
   letter-spacing: .05em;
   width: 70%;
+  /* アニメーション */
+  display: flex;
+  overflow: hidden;
+}
+
+.title span {
+  display: block;
+  transform: translate(0, 105%);
+  transition: transform cubic-bezier(0.215, 0.61, 0.355, 1) 0.5s;
+}
+
+.title.-visible span {
+  transform: translate(0, 0);
+}
+
+.title span:nth-child(2) {
+  transition-delay: 0.06s;
+}
+
+.title span:nth-child(3) {
+  transition-delay: 0.12s;
+}
+
+.title span:nth-child(4) {
+  transition-delay: 0.18s;
+}
+
+.title span:nth-child(5) {
+  transition-delay: 0.24s;
+}
+
+.title span:nth-child(6) {
+  transition-delay: 0.30s;
 }
 
 .title-sub {
@@ -330,7 +364,7 @@ img {
 }
 
 .viewmore a:hover {
-  color: #13b0ee;
+  color: #765D4C;
 }
 
 .viewmore a::after {
@@ -343,7 +377,7 @@ img {
   width: 120%;
   height: 3px;
   /* background: #333; */
-  background: #AED8E6;
+  background: #A69284;
   /*アニメーションの指定*/
   transition: all .3s;
   transform: scale(0, 1);
@@ -606,7 +640,7 @@ img {
 .timeline dl {
   margin: 0 0 4rem 3em;
   font-size: 1rem;
-  color: #56A5BE;
+  color: #765D4C;
 }
 
 .timeline dd {
@@ -629,7 +663,7 @@ img {
   /*線の太さ*/
   height: 0;
   /*はじめは高さを0に*/
-  background: #56A5BE;
+  background: #765D4C;
 }
 
 /*タイムラインの見出し横の丸の位置と形状*/
@@ -640,7 +674,7 @@ img {
   left: -0.4rem;
   width: 1.5rem;
   height: 1.5rem;
-  background: #56A5BE;
+  background: #765D4C;
   border-radius: 50%;
 }
 
@@ -763,7 +797,7 @@ img {
   /*描画位置*/
   position: absolute;
   left: -15px;
-  top: -15px;
+  top: -40px;
   /*テキストの形状*/
   color: #000;
   font-size: 0.7rem;
@@ -1090,7 +1124,7 @@ path {
   }
 
   .title-sub {
-    font-size: 1.2rem;
+    font-size: 1rem;
     padding-left: 5%;
   }
 

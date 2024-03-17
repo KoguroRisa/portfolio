@@ -1,5 +1,4 @@
 $(function () {
-
   //フェードイン
   $(function () {
     // ウインドウをスクロールしたら
@@ -108,6 +107,18 @@ $(function () {
       $('.tabBlock:nth-child(' + (index + 1) + ')').removeClass('tabBlock-none');
     });
   }
+
+  //タイトルアニメーション
+  const titleVisible = "-visible";
+  const TIMEOUT = 1900;
+  const $target = $(".title");
+
+  setInterval(() => {
+    $target.addClass(titleVisible);
+    setTimeout(() => {
+      $target.removeClass(titleVisible);
+    }, TIMEOUT);
+  }, TIMEOUT * 2);
 });
 
 // 左に動くアニメーション
@@ -128,6 +139,7 @@ $(window).on('load', function () {
     }
   });
 });
+
 
 // //ローディング画面の表示
 // $(window).on('load', function () {
