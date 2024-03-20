@@ -273,46 +273,67 @@ img {
   text-align: left;
   letter-spacing: .05em;
   width: 70%;
-  /* アニメーション */
   display: flex;
-  overflow: hidden;
+  align-items: center;
+  /* アニメーション */
+  /* display: flex;
+  overflow: hidden; */
 }
 
-.title span {
-  display: block;
-  transform: translate(0, 105%);
-  transition: transform cubic-bezier(0.215, 0.61, 0.355, 1) 0.5s;
-}
 
-.title.-visible span {
+/* .title.-visible span {
   transform: translate(0, 0);
+} */
+
+/* .title span:nth-child(1) {
+  animation-delay: 0s;
 }
 
 .title span:nth-child(2) {
-  transition-delay: 0.06s;
+  animation-delay: 0.06s;
 }
 
 .title span:nth-child(3) {
-  transition-delay: 0.12s;
+  animation-delay: 0.12s;
 }
 
 .title span:nth-child(4) {
-  transition-delay: 0.18s;
+  animation-delay: 0.18s;
 }
 
 .title span:nth-child(5) {
-  transition-delay: 0.24s;
+  animation-delay: 0.24s;
 }
 
 .title span:nth-child(6) {
-  transition-delay: 0.30s;
-}
+  animation-delay: 0.30s;
+} */
 
 .title-sub {
   font-size: 1rem;
   padding-left: 13%;
-  vertical-align: middle;
+  /* vertical-align: middle;
+  align-items: center;
+  justify-content: center; */
 
+}
+
+span.smoothText {
+  overflow: hidden;
+  display: block;
+  padding: 0.5rem;
+}
+
+/* アニメーションで傾斜がついている文字列を水平に戻す*/
+span.smoothTextTrigger {
+  transition: .8s ease-in-out;
+  transform: translate3d(0, 100%, 0) skewY(12deg);
+  transform-origin: left;
+  display: block;
+}
+
+span.smoothTextTrigger.smoothTextAppear {
+  transform: translate3d(0, 0, 0) skewY(0);
 }
 
 /*--------------------------------
