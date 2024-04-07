@@ -21,6 +21,21 @@ $(function () {
     });
   });
 
+  //TOPへ戻るボタン表示
+  const pagetop = $('.pagetop');
+  pagetop.hide();
+
+  $(window).scroll(function () {
+
+    if ($(window).scrollTop() > 100) {
+      pagetop.fadeIn();
+    }
+    else {
+      pagetop.fadeOut();
+
+    }
+  });
+
   //ページ内スクロール
   var navHeight = $(".header").outerHeight();
 
@@ -127,6 +142,15 @@ $(function () {
     });
   }
 
+  //TOPへ戻るボタンクリック
+  $('.pagetop').click(function () {
+    $("body,html").animate({
+      scrollTop: 0,
+    }, 800);
+
+    //親要素に伝播させない
+    return false;
+  });
   //   //タイトルアニメーション
   //   const titleVisible = "-visible";
   //   const TIMEOUT = 1900;

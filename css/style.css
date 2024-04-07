@@ -24,7 +24,7 @@ li {
 a {
   transition: opacity .3s;
   text-decoration: none;
-  color: #765D4C;
+  color: #333;
 }
 
 img {
@@ -151,7 +151,7 @@ img {
 
 /* Contactボタン */
 .gnav-item:nth-of-type(3) a {
-  color: #765D4C;
+  color: orange;
 }
 
 .gnav-item:nth-of-type(3) a:after {
@@ -584,6 +584,71 @@ span.smoothTextTrigger.smoothTextAppear {
 }
 
 /*--------------------------------
+ TOPへ戻る
+---------------------------------*/
+.pagetop {
+  position: fixed;
+  bottom: 38px;
+  right: 20px;
+  background-color: black;
+  border-radius: 50%;
+  padding: 25px 25px;
+  /* width: 80px;
+  height: 80px; */
+
+  /* ボタンの色と文字の色とサイズ */
+  background-color: orange;
+  color: white;
+  font-size: 16px;
+
+  /* ②ボタンのサイズと角丸
+      width: 80px;
+      height: 80px;
+      border-radius: 50%; */
+
+  /* 次に作る上向きの三角と、TOPの文字の位置を揃えるためのcss */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /* ⑧色が変化する時間 */
+  transition: .3s;
+}
+
+/* ⑦マウスをかざした時に変化する色の指定 */
+.pagetop:hover {
+  background-color: white;
+  color: orange;
+}
+
+.pagetop::before {
+  content: "";
+  display: block;
+
+  /* 三角のサイズ */
+  width: 10px;
+  height: 10px;
+
+  /* 三角の線と回転角度 */
+  border-top: 2px solid white;
+  border-right: 2px solid white;
+  transform: rotate(-45deg);
+  /* 色が変化する時間 */
+  transition: .3s;
+}
+
+/* ⑨マウスをかざした時に変化する色の指定 */
+.pagetop:hover::before {
+  border-top: 2px solid orange;
+  border-right: 2px solid orange;
+}
+
+/* .pagetop a {
+  text-align: center;
+  color: white;
+} */
+
+/*--------------------------------
  下層ページ共通
 ---------------------------------*/
 .content-title {
@@ -767,6 +832,8 @@ span.smoothTextTrigger.smoothTextAppear {
 
 .home-link {
   text-align: center;
+  font-size: 1.5rem;
+  margin: 1rem;
 }
 
 /* ーーーーdesignーーーー */
