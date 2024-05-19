@@ -115,7 +115,7 @@ $(function () {
   };
   typewriter({
     el: "#typewriter", //要素
-    string: "I'm a growing web designer.", //文字列
+    string: "I'm a growing web creator.", //文字列
     speed: 50 //速度
   });
 
